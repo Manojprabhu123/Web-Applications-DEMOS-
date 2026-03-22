@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuickCab – Book Your Ride</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ════════ LOGIN PAGE ════════ -->
+  <div id="loginPage" class="page active">
+    <div class="login-box">
+
+      <!-- Logo -->
+      <div class="logo">
+        <div class="icon">🚖</div>
+        <h1><span>Quick</span>Cab</h1>
+        <p>Fast · Reliable · Affordable</p>
+      </div>
+
+      <!-- Login Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('user')">👤 User Login</button>
+        <button class="tab-btn" onclick="switchTab('admin')">🛡️ Admin Login</button>
+      </div>
+
+      <!-- Error Message -->
+      <div id="loginErr" class="err-msg">❌ Invalid credentials. Please try again.</div>
+
+      <!-- Username Field -->
+      <div class="field">
+        <label>USERNAME</label>
+        <input id="loginUser" type="text" placeholder="Enter username" />
+      </div>
+
+      <!-- Password Field -->
+      <div class="field">
+        <label>PASSWORD</label>
+        <input id="loginPass" type="password" placeholder="Enter password"
+               onkeydown="if(event.key==='Enter') doLogin()" />
+      </div>
+
+      <!-- Login Button -->
+      <button class="btn btn-yellow" onclick="doLogin()">Login →</button>
+
+      <!-- Demo Hint -->
+      <div class="hint" id="loginHint">
+        <b>Demo — User:</b> ravi / ravi123 &nbsp;|&nbsp; priya / priya123
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ════════ APP SHELL (shown after login) ════════ -->
+  <div id="appShell" class="page">
+
+    <!-- Top Navigation Bar -->
+    <nav>
+      <div class="nav-logo">🚖 <span>Quick</span>Cab</div>
+      <div class="nav-links" id="navLinks"></div>
+      <span class="nav-user" id="navUser"></span>
+      <button class="btn-outline" style="margin-left:12px" onclick="logout()">Logout</button>
+    </nav>
+
+    <!-- Page Content (filled by JavaScript) -->
+    <div class="shell" id="appContent"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
